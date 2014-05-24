@@ -1,0 +1,33 @@
+﻿using System.Web.Mvc;
+
+namespace Insya.Localization.Helpers
+{
+
+    public static partial class HtmlHelperExtensions
+    {
+
+        /// <summary>
+        /// Razor template using @Html.Localize("id")
+        /// </summary>
+        /// <param id="helper"></param>
+        /// <param id="id"></param>
+        /// <returns></returns>
+        public static MvcHtmlString Localize(this HtmlHelper helper, string id)
+        {
+            return new MvcHtmlString(Localization.Localize(id));
+        }
+
+        /// <summary>
+        /// or Razor template using @Html.Loc("id")
+        /// </summary>
+        /// <param id="helper"></param>
+        /// <param id="id"></param>
+        /// <returns></returns>
+        public static MvcHtmlString Loc(this HtmlHelper helper, string id)
+        {
+            return new MvcHtmlString(Localization.Localize(id));
+        }
+
+    }
+
+}

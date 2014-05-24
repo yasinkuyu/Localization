@@ -21,6 +21,7 @@ build/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+UnitTestResults.html
 
 *_i.c
 *_p.c
@@ -45,6 +46,9 @@ build/
 *.pidb
 *.log
 *.scc
+
+# Visual Studio cache files
+*.sln.ide/
 
 # Visual C++ cache files
 ipch/
@@ -96,8 +100,7 @@ publish/
 *.Publish.xml
 
 # NuGet Packages Directory
-## TODO: If you have NuGet Package Restore enabled, uncomment the next line
-#packages/
+packages/
 
 # Windows Azure Build Output
 csx
