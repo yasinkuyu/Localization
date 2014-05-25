@@ -8,14 +8,15 @@ Create **multi-language** structure with ASP.NET MVC
 Requirements
 ---------------  
 
-## Localization
+Localization
   - en_US.xml
   - tr_TR.xml
   - and more...
   
-### Bin
+Bin
   - Insya.Localization.dll
   - System.ComponentModel.DataAnnotations
+
 
 ### Usage
     - @Html.ActionLinkLocalization("changelng", "Index", "Home", new { locale = "en_EN"})
