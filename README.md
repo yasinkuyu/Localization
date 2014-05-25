@@ -15,7 +15,6 @@ Create `multi-language` structure with ASP.NET MVC
     - <a href="ChangeLang/?locale=en_US" title="Change Language">English</a>
     - <a href="ChangeLang/?locale=tr_TR" title="Dili Deðiþtir">Türkçe</a>
 
-
 	Index.cshtml
 		@Html.Get("homepage") or @Html.Localize("homepage")
 
@@ -40,8 +39,6 @@ Structure
 ---------------
 
 ### Views
-
-### Razor
 	Xml file
     <item id="homepage">Home Page</item>
     
