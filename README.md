@@ -1,21 +1,116 @@
 Localization
 ============
 
-Create multi-language structure with ASP.NET MVC
-
+Create `multi-language` structure with ASP.NET MVC
 
 	PM> Install-Package Localization
 
-#Requirements
+Requirements
+---------------  
 
-	Localization
+Localization
+  - en_US.xml
+  - tr_TR.xml
+  - and more...
+  
+Bin
+  - Insya.Localization.dll
+  - System.ComponentModel.DataAnnotations
 
-		en_US.xml
-		tr_TR.xml
 
-	Bin
-		Insya.Localization.dll
+### Usage
+    - <li>@Html.ActionLinkLocalization("English", "Index", "ChangeLang", new { locale = "en_US" })</li>
+    - <li>@Html.ActionLinkLocalization("Türkçe", "Index", "ChangeLang", new { locale = "tr_TR" })</li>
 
-#Usage
+  **Or**
+    
+    - <a href="ChangeLang/?locale=en_US" title="Change Language">English</a>
+    - <a href="ChangeLang/?locale=tr_TR" title="Dili Deðiþtir">Türkçe</a>
 
-	Localization/SampleUsage.txt
+
+Structure
+---------------
+
+### Views
+
+### Razor
+	Xml file
+    <item id="homepage">Home Page</item>
+    
+    Razor
+         @Html.Localize("homepage")
+    	 Or
+         @Html.Get("homepage")
+      
+    Method
+         Localization.Localize("homepage")
+         Or
+         Localization.Get("homepage")
+    
+    @Html.ActionLinkLocalization()
+    @Html.ActionLocalization()
+
+### Controllers
+
+```
+public ActionResult Index(string lang = "en_EN")
+{
+  Response.Cookies["CacheLang"].Value = lang;
+  
+  if (Request.UrlReferrer != null)
+  Response.Redirect(Request.UrlReferrer.ToString());
+  
+  var message = Localization.Get("changedlng");
+  
+  return Content(message);
+}
+```
+
+### Models
+  
+    Attribute Localize
+      Display Attribute 
+        [DisplayLocalize("username")]
+        public string Username { get; set; }
+      
+      String Length Attribute 
+        [StringLengthLocalize(20, MinimumLength = 4)]
+        public string DisplayName { get; set; }
+      
+      Required Attribute 
+        [RequiredLocalized]
+        public string DisplayName { get; set; }
+      
+      Description Attribute 
+        [DescriptionLocalize]
+        public string DisplayName { get; set; }
+
+----------
+
+**Intellisense in razor files (Views/web.config)**
+- Views
+	- web.config
+		- system.web.webPages.razor
+			- pages
+            	- namespaces
+            		- add namespace="Insya.Localization" 
+
+Example 
+
+```
+<system.web.webPages.razor>
+  <host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+      <pages pageBaseType="System.Web.Mvc.WebViewPage">
+          <namespaces>
+          <add namespace="System.Web.Mvc" />
+          <add namespace="System.Web.Mvc.Ajax" />
+          <add namespace="System.Web.Mvc.Html" />
+          <add namespace="System.Web.Optimization"/>
+          <add namespace="System.Web.Routing" />
+          ## <add namespace="Insya.Localization" />
+          </namespaces>
+      </pages>
+</system.web.webPages.razor>
+```
+
+Note: Nuget package auto insert <add namespace="Insya.Localization" />

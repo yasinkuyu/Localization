@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// @yasinkuyu
+// 05/08/2014
+
 using System.Web;
 using System.Xml;
 

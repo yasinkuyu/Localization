@@ -1,4 +1,6 @@
-﻿
+﻿// @yasinkuyu
+// 05/08/2014
+
 namespace Insya.Localization
 {
     public static class Localization

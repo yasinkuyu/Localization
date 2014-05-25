@@ -1,4 +1,7 @@
-﻿using System;
+﻿// @yasinkuyu
+// 05/08/2014
+
+using System;
 using System.ComponentModel;
 
 namespace Insya.Localization.Attributes

@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Yasin Kuyu")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("www.insya.com")]
-[assembly: AssemblyProduct("InsyaCMS")]
+[assembly: AssemblyProduct("Insya")]
 [assembly: AssemblyCopyright("Copyright ©  2014 Insya Interaktif")]
 [assembly: AssemblyTrademark("Insya Interaktif")]
 [assembly: AssemblyCulture("")]

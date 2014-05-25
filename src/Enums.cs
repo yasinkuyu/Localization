@@ -1,5 +1,5 @@
-﻿
-using System.ComponentModel;
+﻿// @yasinkuyu
+// 05/08/2014
 
 namespace Insya.Localization
 {

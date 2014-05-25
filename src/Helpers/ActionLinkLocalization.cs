@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿// @yasinkuyu
+// 05/08/2014
+
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Insya.Localization.Helpers

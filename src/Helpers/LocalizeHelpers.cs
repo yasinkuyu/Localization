@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿// @yasinkuyu
+// 05/08/2014
+
+using System.Web.Mvc;
 
 namespace Insya.Localization.Helpers
 {
@@ -28,6 +31,16 @@ namespace Insya.Localization.Helpers
             return new MvcHtmlString(Localization.Localize(id));
         }
 
+        /// <summary>
+        /// or Razor template using @Html.Loc("id")
+        /// </summary>
+        /// <param id="helper"></param>
+        /// <param id="id"></param>
+        /// <returns></returns>
+        public static MvcHtmlString Get(this HtmlHelper helper, string id)
+        {
+            return new MvcHtmlString(Localization.Localize(id));
+        }
     }
 
 }
