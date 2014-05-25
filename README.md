@@ -116,3 +116,5 @@ Example
       </pages>
 </system.web.webPages.razor>
 ```
+
+Note: Nuget package auto insert <add namespace="Insya.Localization" />
