@@ -35,15 +35,16 @@ Structure
 ### Razor
 	Xml file
     <item id="homepage">Home Page</item>
-    Razor
-    @Html.Localize("homepage")
-    Or
-    @Html.Get("homepage")
     
+    Razor
+         @Html.Localize("homepage")
+    	 Or
+         @Html.Get("homepage")
+      
     Method
-    Localization.Localize("homepage")
-    Or
-    Localization.Get("homepage")
+         Localization.Localize("homepage")
+         Or
+         Localization.Get("homepage")
     
     @Html.ActionLinkLocalization()
     @Html.ActionLocalization()
@@ -65,27 +66,27 @@ public ActionResult Index(string lang = "en_EN")
 ```
 
 ### Models
-	
-	**Attribute Localize**
-		### Display Attribute 
-			[DisplayLocalize("username")]
-			public string Username { get; set; }
-
-		### String Length Attribute 
-			[StringLengthLocalize(20, MinimumLength = 4)]
-			public string DisplayName { get; set; }
-
-		### String Length Attribute 
-			[StringLengthLocalize(20, MinimumLength = 4)]
-			public string DisplayName { get; set; }
-
-		### Required Attribute 
-			[RequiredLocalized]
-			public string DisplayName { get; set; }
-		
-		### Description Attribute 
-			[DescriptionLocalize]
-			public string DisplayName { get; set; }
+  
+    Attribute Localize
+      Display Attribute 
+        [DisplayLocalize("username")]
+        public string Username { get; set; }
+      
+      String Length Attribute 
+        [StringLengthLocalize(20, MinimumLength = 4)]
+        public string DisplayName { get; set; }
+      
+      String Length Attribute 
+        [StringLengthLocalize(20, MinimumLength = 4)]
+        public string DisplayName { get; set; }
+      
+      Required Attribute 
+        [RequiredLocalized]
+        public string DisplayName { get; set; }
+      
+      Description Attribute 
+        [DescriptionLocalize]
+        public string DisplayName { get; set; }
 
 ----------
 
@@ -102,15 +103,15 @@ public ActionResult Index(string lang = "en_EN")
 ```
 <system.web.webPages.razor>
   <host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
-  <pages pageBaseType="System.Web.Mvc.WebViewPage">
-  <namespaces>
-  <add namespace="System.Web.Mvc" />
-  <add namespace="System.Web.Mvc.Ajax" />
-  <add namespace="System.Web.Mvc.Html" />
-  <add namespace="System.Web.Optimization"/>
-  <add namespace="System.Web.Routing" />
-  ## <add namespace="Insya.Localization" />
-  </namespaces>
-  </pages>
+      <pages pageBaseType="System.Web.Mvc.WebViewPage">
+          <namespaces>
+          <add namespace="System.Web.Mvc" />
+          <add namespace="System.Web.Mvc.Ajax" />
+          <add namespace="System.Web.Mvc.Html" />
+          <add namespace="System.Web.Optimization"/>
+          <add namespace="System.Web.Routing" />
+          ## <add namespace="Insya.Localization" />
+          </namespaces>
+      </pages>
 </system.web.webPages.razor>
 ```
