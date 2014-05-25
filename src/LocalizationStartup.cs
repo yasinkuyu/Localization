@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Insya.Localization
 {
-    class LocalizationStartup
+    class LocalizationStartup 
     {
 
         /// <summary>
