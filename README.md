@@ -33,7 +33,9 @@ Structure
 ### Views
 
 ### Razor
+	Xml file
     <item id="homepage">Home Page</item>
+    Razor
     @Html.Localize("homepage")
     Or
     @Html.Get("homepage")
@@ -87,7 +89,7 @@ public ActionResult Index(string lang = "en_EN")
 
 ----------
 
-# Intellisense in razor files (Views/web.config)
+**Intellisense in razor files (Views/web.config)**
 - Views
 	- web.config
 		- system.web.webPages.razor
