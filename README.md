@@ -1,7 +1,7 @@
 Localization
 ============
 
-Create **multi-language** structure with ASP.NET MVC
+Create `multi-language` structure with ASP.NET MVC
 
 	PM> Install-Package Localization
 
