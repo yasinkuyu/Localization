@@ -7,11 +7,12 @@ Create `multi-language` structure with ASP.NET MVC
 
 
 ### Usage
-- <li>@Html.ActionLinkLocalization("English", "Index", "Locales", new { lang = "en_US" })</li>
-- <li>@Html.ActionLinkLocalization("Türkçe", "Index", "Locales", new { lang = "tr_TR" })</li>
-Or
-- <a href="Locales/?lang=en_US" title="Change Language">English</a>
-- <a href="Locales/?lang=tr_TR" title="Dili Deðiþtir">Türkçe</a>
+
+	* <li>@Html.ActionLinkLocalization("English", "Index", "Locales", new { lang = "en_US" })</li>
+	* <li>@Html.ActionLinkLocalization("Türkçe", "Index", "Locales", new { lang = "tr_TR" })</li>
+	Or
+	* <a href="Locales/?lang=en_US">English</a>
+	* <a href="Locales/?lang=tr_TR">Türkçe</a>
 
 Index.cshtml
 	@Html.Get("homepage") or @Html.Localize("homepage")
