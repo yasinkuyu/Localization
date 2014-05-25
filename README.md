@@ -99,7 +99,7 @@ public ActionResult Index(string lang = "en_EN")
             	- namespaces
             		- add namespace="Insya.Localization" 
 
-### Sample 
+Example 
 
 ```
 <system.web.webPages.razor>
