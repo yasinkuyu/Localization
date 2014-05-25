@@ -8,6 +8,16 @@ namespace Insya.Localization
 {
     public class Resource
     {
+        /// <summary>
+        /// GetXmlResource all items (ex: tr_TR.xml)
+        /// 
+        /// Very simple xml structure
+        ///     <lang>
+	    ///         <item id="homepage">Homepage</item>
+        ///     </lang>
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="applicationName"></param>
         public static void GetXmlResource(string path, string applicationName)
         {
 

@@ -12,8 +12,8 @@ namespace Insya.Localization
     {
         en_US = 0,   // English (United States)
         tr_TR = 1,   // Turkish
-        //fa_IR = 2, // Persian (Iran)
-        //az_AZ = 3  // Azeri
+        fa_IR = 2, // Persian (Iran)
+        az_AZ = 3  // Azeri
 
         // and more....
     }
