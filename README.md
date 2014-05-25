@@ -5,6 +5,21 @@ Create `multi-language` structure with ASP.NET MVC
 
 	PM> Install-Package Localization
 
+
+### Usage
+    - <li>@Html.ActionLinkLocalization("English", "Index", "ChangeLang", new { locale = "en_US" })</li>
+    - <li>@Html.ActionLinkLocalization("Türkçe", "Index", "ChangeLang", new { locale = "tr_TR" })</li>
+
+  **Or**
+    
+    - <a href="ChangeLang/?locale=en_US" title="Change Language">English</a>
+    - <a href="ChangeLang/?locale=tr_TR" title="Dili Deðiþtir">Türkçe</a>
+
+
+	Index.cshtml
+		@Html.Get("homepage") or @Html.Localize("homepage")
+
+
 Requirements
 ---------------  
 
@@ -18,14 +33,7 @@ Bin
   - System.ComponentModel.DataAnnotations
 
 
-### Usage
-    - <li>@Html.ActionLinkLocalization("English", "Index", "ChangeLang", new { locale = "en_US" })</li>
-    - <li>@Html.ActionLinkLocalization("Türkçe", "Index", "ChangeLang", new { locale = "tr_TR" })</li>
 
-  **Or**
-    
-    - <a href="ChangeLang/?locale=en_US" title="Change Language">English</a>
-    - <a href="ChangeLang/?locale=tr_TR" title="Dili Deðiþtir">Türkçe</a>
 
 
 Structure
@@ -53,7 +61,7 @@ Structure
 ### Controllers
 
 ```
-public ActionResult Index(string lang = "en_EN")
+public ActionResult Index(string lang = "en_US")
 {
   Response.Cookies["CacheLang"].Value = lang;
   
@@ -95,6 +103,7 @@ public ActionResult Index(string lang = "en_EN")
             	- namespaces
             		- add namespace="Insya.Localization" 
 
+
 Example 
 
 ```
@@ -113,4 +122,14 @@ Example
 </system.web.webPages.razor>
 ```
 
-Note: Nuget package auto insert <add namespace="Insya.Localization" />
+**Note:** Nuget package auto insert <add namespace="Insya.Localization" />
+
+
+
+
+
+
+**Roadmap:**
+- Localizable Routing
+- All the XML language files editing tool on one screen.
+- Testing tools
