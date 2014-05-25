@@ -15,7 +15,8 @@ Create `multi-language` structure with ASP.NET MVC
 	* <a href="Locales/?lang=tr_TR">Türkçe</a>
 
 Index.cshtml
-	@Html.Get("homepage") or @Html.Localize("homepage")
+
+	* @Html.Get("homepage") or @Html.Localize("homepage")
 
 
 
