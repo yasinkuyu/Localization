@@ -12,7 +12,7 @@ Create `multi-language` structure with ASP.NET MVC
     - <li>@Html.ActionLinkLocalization("T�rk�e", "Index", "Locales", new { lang = "tr_TR" })</li>
     Or
     - <a href="Locales/?lang=en_US">English</a>
-    - <a href="Locales/?lang=tr_TR">T�rk�e</a>
+    - <a href="Locales/?lang=tr_TR">Türkçe</a>
 
 Index.cshtml
 
@@ -21,11 +21,12 @@ Index.cshtml
 
 ### Video Tutorial
 
-vimeo
-[![ASP.NET MVC Localization Tutorial](https://i.vimeocdn.com/video/476545847_295x166.jpg)](https://vimeo.com/96483908)
 
-youtube
-[![ASP.NET MVC Localization Tutorial](https://i.vimeocdn.com/video/476545847_295x166.jpg)](http://youtu.be/9V5PS4m0er0)
+
+[![ASP.NET MVC Localization Tutorial vimeo](https://i.vimeocdn.com/video/476545847_295x166.jpg)](https://vimeo.com/96483908)
+
+
+[![ASP.NET MVC Localization Tutorial youtube](https://i.vimeocdn.com/video/476545847_295x166.jpg)](http://youtu.be/9V5PS4m0er0)
 
 
 
