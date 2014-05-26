@@ -19,7 +19,8 @@ Index.cshtml
     @Html.Get("homepage") or @Html.Localize("homepage")
 
 
-Video Tutorial
+### Video Tutorial
+
 [![ASP.NET MVC Localization Tutorial](https://i.vimeocdn.com/video/476536020_295x166.jpg)](https://vimeo.com/96476532)
 
 
