@@ -3,20 +3,20 @@ Localization
 
 Create `multi-language` structure with ASP.NET MVC
 
-	PM> Install-Package Localization
+    PM> Install-Package Localization
 
 
 ### Usage
 
-	* <li>@Html.ActionLinkLocalization("English", "Index", "Locales", new { lang = "en_US" })</li>
-	* <li>@Html.ActionLinkLocalization("Türkçe", "Index", "Locales", new { lang = "tr_TR" })</li>
-	Or
-	* <a href="Locales/?lang=en_US">English</a>
-	* <a href="Locales/?lang=tr_TR">Türkçe</a>
+    - <li>@Html.ActionLinkLocalization("English", "Index", "Locales", new { lang = "en_US" })</li>
+    - <li>@Html.ActionLinkLocalization("Türkçe", "Index", "Locales", new { lang = "tr_TR" })</li>
+    Or
+    - <a href="Locales/?lang=en_US">English</a>
+    - <a href="Locales/?lang=tr_TR">Türkçe</a>
 
 Index.cshtml
 
-	* @Html.Get("homepage") or @Html.Localize("homepage")
+    @Html.Get("homepage") or @Html.Localize("homepage")
 
 
 
@@ -42,12 +42,12 @@ Structure
 ---------------
 
 ### Views
-	Xml file
+    Xml file
     <item id="homepage">Home Page</item>
     
     Razor
          @Html.Localize("homepage")
-    	 Or
+         Or
          @Html.Get("homepage")
       
     Code Behind
@@ -98,11 +98,12 @@ public ActionResult Index(string lang = "en_US")
 
 **Intellisense in razor files (Views/web.config)**
 - Views
-	- web.config
-		- system.web.webPages.razor
-			- pages
-            	- namespaces
-            		- add namespace="Insya.Localization" 
+    - web.config
+        - system.web.webPages.razor
+            - pages
+                - namespaces
+                    - add namespace="Insya.Localization" 
+                    - add namespace="Insya.Localization.Helpers" 
 
 
 Example 
@@ -118,12 +119,13 @@ Example
           <add namespace="System.Web.Optimization"/>
           <add namespace="System.Web.Routing" />
           ## <add namespace="Insya.Localization" />
+          ## <add namespace="Insya.Localization.Helpers" />
           </namespaces>
       </pages>
 </system.web.webPages.razor>
 ```
 
-**Note:** Nuget package auto insert <add namespace="Insya.Localization" />
+**Note:** Nuget package auto insert <add namespace="Insya.Localization" />  <add namespace="Insya.Localization.Helpers" />
 
 
 

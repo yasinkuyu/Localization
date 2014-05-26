@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Attributes\DescriptionLocalizeAttribute.cs" />
     <Compile Include="Attributes\DisplayLocalizeAttribute.cs" />
+    <Compile Include="ILangCode.cs" />
+    <Compile Include="LangCode.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="Helpers\ActionLinkLocalization.cs" />
     <Compile Include="Helpers\ActionLocalization.cs" />

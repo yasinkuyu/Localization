@@ -38,6 +38,19 @@ namespace Insya.Localization
 
         }
 
+
+        /// <summary>
+        /// Todo: Inline localization 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>xml item id</returns>
+        public static string Localize(LangCode lang)
+        {
+            return _loc.GetLang(lang.en_US.ToString());
+
+        }
+
+        
         // ToDo this 
         public static string Set(string id)
         {

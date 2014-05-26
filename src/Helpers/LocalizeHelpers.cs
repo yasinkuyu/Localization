@@ -21,6 +21,18 @@ namespace Insya.Localization.Helpers
         }
 
         /// <summary>
+        /// Razor template using @Html.Localize("id")
+        /// </summary>
+        /// <param id="helper"></param>
+        /// <param id="id"></param>
+        /// <param id="lang"></param>
+        /// <returns></returns>
+        public static MvcHtmlString Localize(this HtmlHelper helper, LangCode lang)
+        {
+            return new MvcHtmlString(Localization.Localize(lang));
+        }
+
+        /// <summary>
         /// or Razor template using @Html.Loc("id")
         /// </summary>
         /// <param id="helper"></param>
