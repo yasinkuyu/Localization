@@ -21,11 +21,11 @@ Index.cshtml
 
 ### Video Tutorial
 
+vimeo
 [![ASP.NET MVC Localization Tutorial](https://i.vimeocdn.com/video/476545847_295x166.jpg)](https://vimeo.com/96483908)
 
-or
-
-[![ASP.NET MVC Localization Tutorial](http://i.ytimg.com/vi/9V5PS4m0er0/hqdefault.jpg?1401102164384)](http://youtu.be/9V5PS4m0er0)
+youtube
+[![ASP.NET MVC Localization Tutorial](https://i.vimeocdn.com/video/476545847_295x166.jpg)](http://youtu.be/9V5PS4m0er0)
 
 
 
