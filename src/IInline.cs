@@ -3,7 +3,7 @@
 
 namespace Insya.Localization
 {
-    interface ILangCode
+    interface IInline
     {
         string de_DE { get; set; }
         string en_CA { get; set; }

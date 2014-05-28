@@ -5,14 +5,11 @@ namespace Insya.Localization
 {
     public static class Localization
     {
-
-
         private static LocalizationStartup _loc;
 
         static Localization()
         {
             _loc = new LocalizationStartup();
-
         }
 
         /// <summary>
@@ -22,9 +19,7 @@ namespace Insya.Localization
         /// <returns></returns>
         public static string Get(string id)
         {
-
             return _loc.GetLang(id);
-
         }
 
         /// <summary>
@@ -35,28 +30,28 @@ namespace Insya.Localization
         public static string Localize(string id)
         {
             return _loc.GetLang(id);
-
         }
 
 
         /// <summary>
-        /// Todo: Inline localization 
+        /// Alternative calling Localize("id") or Get("id")
         /// </summary>
         /// <param name="id"></param>
+        /// <returns></returns>
+        public static string Get(Inline lang)
+        {
+            return _loc.GetLang(lang);
+        }
+
+        /// <summary>
+        /// Inline localization
+        /// </summary>
+        /// <param name="lang"></param>
         /// <returns>xml item id</returns>
-        public static string Localize(LangCode lang)
+        public static string Localize(Inline lang)
         {
-            return _loc.GetLang(lang.en_US.ToString());
-
+            return _loc.GetLang(lang);
         }
 
-        
-        // ToDo this 
-        public static string Set(string id)
-        {
-
-            return _loc.GetLang(id);
-
-        }
     }
 }

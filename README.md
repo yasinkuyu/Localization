@@ -62,6 +62,15 @@ Structure
     @Html.ActionLocalization()
 
 
+### Inline Localization
+	
+	@Html.Get(new Inline(en: "book", tr: "kitap"))
+	@Html.Localize(new Inline(en: "book", tr: "kitap"))
+
+
+
+
+
 ### Controllers
 
 ```

@@ -6,15 +6,14 @@ using System.Web;
 
 namespace Insya.Localization
 {
-    class LocalizationStartup 
+    internal class LocalizationStartup
     {
-
         /// <summary>
-        /// Localization Culture (ex: tr-TR) 
+        /// Localization Culture (ex: tr-TR)
         /// </summary>
         /// <returns></returns>
         private string Culture { get; set; }
-        
+
         /// Unique applization id (* optional)
         private string AppName { get; set; }
 
@@ -24,14 +23,8 @@ namespace Insya.Localization
         /// <returns></returns>
         private string Folder { get; set; }
 
-        /// <summary>
-        /// Xml localization item id usgin GetLang("itemName")
-        /// </summary>
-        /// <param id="id">Xml localization item id</param>
-        /// <returns></returns>
-        public string GetLang(string id)
+        public void ReadCookie()
         {
-
             Culture = string.Format("{0}", Language.en_US);
 
             var cookieLanguage = HttpContext.Current.Request.Cookies["CacheLang"];
@@ -45,7 +38,21 @@ namespace Insya.Localization
                 var httpCookie = HttpContext.Current.Response.Cookies["CacheLang"];
                 if (httpCookie != null)
                     httpCookie.Value = Language.en_US.ToString();
+
+                if (cookieLanguage != null)
+                    Culture = string.Format("{0}", cookieLanguage.Value);
+
             }
+        }
+
+        /// <summary>
+        /// Xml localization item id usgin GetLang("itemName")
+        /// </summary>
+        /// <param id="id">Xml localization item id</param>
+        /// <returns></returns>
+        public string GetLang(string id)
+        {
+            ReadCookie();
 
             // Unique applization default id
             string uniqueApplicationName = "InsyaLocalization";
@@ -60,13 +67,11 @@ namespace Insya.Localization
 
             string applicationName = string.Format("{0}_{1}_", Culture, uniqueApplicationName);
 
-
             if (HttpContext.Current.Application[applicationName + id] == null)
             {
                 var path = HttpContext.Current.Server.MapPath(string.Format("~/{0}/{1}.xml", xmlFolderName, Culture));
 
                 Resource.GetXmlResource(path, applicationName);
-
             }
             else
             {
@@ -76,10 +81,29 @@ namespace Insya.Localization
             return id;
         }
 
+        /// <summary>
+        /// Xml localization item id usgin GetLang("itemName")
+        /// </summary>
+        /// <param name="lang"></param>
+        /// <returns></returns>
+        public string GetLang(Inline lang)
+        {
+            ReadCookie();
+
+            if (Culture != null)
+            {
+                var propy = new GetPropertyByValue();
+                var value = (string)propy.GetValue(lang, Culture);
+
+                return value;
+            }
+
+            return lang.en_US;
+        }
+
         // ToDo this
         public string SetLang(Language lang)
         {
-
             var cookieLanguage = HttpContext.Current.Request.Cookies["CacheLang"];
 
             if (cookieLanguage != null)
@@ -87,11 +111,9 @@ namespace Insya.Localization
                 var cookie = string.Format("{0}", cookieLanguage.Value);
 
                 bool exists = Enum.IsDefined(typeof(Language), cookieLanguage.Value);
-
             }
 
             return null;
         }
-
     }
 }

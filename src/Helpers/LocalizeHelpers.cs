@@ -8,12 +8,11 @@ namespace Insya.Localization.Helpers
 
     public static partial class HtmlHelperExtensions
     {
-
         /// <summary>
         /// Razor template using @Html.Localize("id")
         /// </summary>
-        /// <param id="helper"></param>
-        /// <param id="id"></param>
+        /// <param name="helper"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         public static MvcHtmlString Localize(this HtmlHelper helper, string id)
         {
@@ -23,11 +22,10 @@ namespace Insya.Localization.Helpers
         /// <summary>
         /// Razor template using @Html.Localize("id")
         /// </summary>
-        /// <param id="helper"></param>
-        /// <param id="id"></param>
-        /// <param id="lang"></param>
+        /// <param name="helper"></param>
+        /// <param name="lang"></param>
         /// <returns></returns>
-        public static MvcHtmlString Localize(this HtmlHelper helper, LangCode lang)
+        public static MvcHtmlString Localize(this HtmlHelper helper, Inline lang)
         {
             return new MvcHtmlString(Localization.Localize(lang));
         }
