@@ -73,12 +73,8 @@ namespace Insya.Localization
 
                 Resource.GetXmlResource(path, applicationName);
             }
-            else
-            {
-                return HttpContext.Current.Application[applicationName + id].ToString();
-            }
-
-            return id;
+            
+	    return HttpContext.Current.Application[applicationName + id].ToString();
         }
 
         /// <summary>
