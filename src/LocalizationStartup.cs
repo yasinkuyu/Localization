@@ -1,4 +1,4 @@
-﻿// @yasinkuyu
+// @yasinkuyu
 // 05/08/2014
 
 using System;
@@ -50,7 +50,7 @@ namespace Insya.Localization
         /// </summary>
         /// <param id="id">Xml localization item id</param>
         /// <returns></returns>
-        public string GetLang(string id)
+        public string GetLang(string id, string _culture = "")
         {
             ReadCookie();
 
@@ -64,6 +64,9 @@ namespace Insya.Localization
 
             if (string.IsNullOrEmpty(xmlFolderName))
                 Folder = xmlFolderName;
+
+            if (string.IsNullOrEmpty(_culture))
+                Culture = _culture;
 
             string applicationName = string.Format("{0}_{1}_", Culture, uniqueApplicationName);
 
