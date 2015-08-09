@@ -46,6 +46,18 @@ Bin
 
 
 
+Default locale
+	
+	public void DefaultLocale( )
+	{
+	    HttpCookie cookie = Request.Cookies.Get("CacheLang");
+	    if ( cookie == null)
+	    {
+	        HttpCookie newCookie = new HttpCookie("CacheLang");
+	        newCookie.Value = "en_US";
+	        Response.Cookies.Add(newCookie);
+	    }
+	}
 
 
 Structure
