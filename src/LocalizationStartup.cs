@@ -62,22 +62,27 @@ namespace Insya.Localization
             if (string.IsNullOrEmpty(AppName))
                 AppName = uniqueApplicationName;
 
-            if (string.IsNullOrEmpty(xmlFolderName))
+            if (string.IsNullOrEmpty(Folder))
                 Folder = xmlFolderName;
 
-            if (string.IsNullOrEmpty(_culture))
+            if (!string.IsNullOrEmpty(_culture))
                 Culture = _culture;
 
             string applicationName = string.Format("{0}_{1}_", Culture, uniqueApplicationName);
 
-            if (HttpContext.Current.Application[applicationName + id] == null)
+            var key = applicationName + id;
+
+            if (HttpContext.Current.Application[key] == null)
             {
                 var path = HttpContext.Current.Server.MapPath(string.Format("~/{0}/{1}.xml", xmlFolderName, Culture));
 
                 Resource.GetXmlResource(path, applicationName);
             }
-            
-	    return HttpContext.Current.Application[applicationName + id].ToString();
+
+            var valueObj = HttpContext.Current.Application[key];
+            if (valueObj == null)
+                return id;
+            else return valueObj.ToString();            
         }
 
         /// <summary>
