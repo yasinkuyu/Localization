@@ -158,7 +158,9 @@ Example
 
 **Note:** Nuget package auto insert <add namespace="Insya.Localization" />  <add namespace="Insya.Localization.Helpers" />
 
+### Language Codes
 
+https://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx
 
 ### Contribution
 Fork
