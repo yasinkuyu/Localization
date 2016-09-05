@@ -18,5 +18,6 @@ namespace Insya.Localization
         string ru_RU { get; set; }
         string tr_TR { get; set; }
         string zh_CN { get; set; }
+        string ar_SA { get; set; }
     }
 }
