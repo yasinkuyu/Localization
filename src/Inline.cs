@@ -87,6 +87,12 @@ namespace Insya.Localization
         public string ja_JP { get; set; }
 
         /// <summary>
+        /// Arabic (Saudi Arabia)
+        /// </summary>
+        /// <returns></returns>
+        public string ar_SA { get; set; }
+
+        /// <summary>
         /// Inline localization (xml does not have to define)
         /// </summary>
         /// <param name="en"></param>
@@ -102,7 +108,8 @@ namespace Insya.Localization
         /// <param name="ptBR"></param>
         /// <param name="ruRU"></param>
         /// <param name="zhCN"></param>
-        public Inline(string en = "", string tr = "", string es = "", string de = "", string fr = "", string it = "", string enCA = "", string enGB = "", string esMX = "", string jaJP = "", string ptBR = "", string ruRU = "", string zhCN = "")
+        /// <param name="arSA"></param>
+        public Inline(string en = "", string tr = "", string es = "", string de = "", string fr = "", string it = "", string enCA = "", string enGB = "", string esMX = "", string jaJP = "", string ptBR = "", string ruRU = "", string zhCN = "", string arSA = "")
         {
             en_US = en;
             tr_TR = tr;
@@ -117,6 +124,7 @@ namespace Insya.Localization
             pt_BR = ptBR;
             ru_RU = ruRU;
             zh_CN = zhCN;
+            ar_SA = arSA;
         }
 
         public Inline()
