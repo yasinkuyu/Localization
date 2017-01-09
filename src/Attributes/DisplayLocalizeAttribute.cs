@@ -9,15 +9,15 @@ namespace Insya.Localization.Attributes
     /// <summary>
     /// Localized <see cref="DisplayNameAttribute"/>.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Event)]
     public sealed class DisplayLocalizeAttribute : DisplayNameAttribute
     {
         #region Initialization
         /// <summary>
         /// Initializes a new instance of the <see cref="DisplayLocalizeAttribute"/> class.
         /// </summary>
-        /// <param name="displayName">The display name.</param>
-        public DisplayLocalizeAttribute(string displayName) : base(displayName)
+        /// <param name="id">The text id.</param>
+        public DisplayLocalizeAttribute(string id) : base(id)
         {
         }
         #endregion Initialization
@@ -34,12 +34,9 @@ namespace Insya.Localization.Attributes
         {
             get
             {
-                // Return the localized version of the given value.
-                var str = Localization.Localize(base.DisplayName);
-                return str ?? base.DisplayName;
+                return Localization.Localize(base.DisplayName) ?? base.DisplayName;
             }
         }
-
         #endregion Overrides
     }
 

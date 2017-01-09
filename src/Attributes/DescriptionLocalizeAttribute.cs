@@ -16,8 +16,8 @@ namespace Insya.Localization.Attributes
         /// <summary>
         /// Initializes a new instance of the <see cref="DescriptionLocalizeAttribute"/> class.
         /// </summary>
-        /// <param name="description">The description text.</param>
-        public DescriptionLocalizeAttribute(string description) : base(description)
+        /// <param name="id">The text id.</param>
+        public DescriptionLocalizeAttribute(string id) : base(id)
         {
         }
         #endregion Initialization
@@ -34,9 +34,7 @@ namespace Insya.Localization.Attributes
         {
             get
             {
-                // Return the localized version of the given value.
-                var str = Localization.Localize(base.Description);
-                return str ?? base.Description;
+                return Localization.Localize(base.Description) ?? base.Description;
             }
         }
         #endregion Overrides

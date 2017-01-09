@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 
 namespace Insya.Localization
 {
@@ -17,7 +14,7 @@ namespace Insya.Localization
         public object GetValue(object car, string propertyName)
         {
             return car.GetType().GetProperties()
-               .Single(pi => pi.Name == propertyName)
+               .Single(pi => pi.Name.Replace("@", "") == propertyName)
                .GetValue(car, null);
         }
     }
