@@ -1,0 +1,42 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System" #>
+<#@ Assembly Name="System.Core" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Microsoft.CSharp" #>
+<#
+	List<string> localeList = new List<string>();
+#>
+namespace Insya.Localization 
+{
+  public partial class Inline {
+
+<# foreach(CultureInfo cultureInfo in CultureInfo.GetCultures(CultureTypes.AllCultures).Where(c => !string.IsNullOrEmpty(c.Name))) { #>
+<#
+	string locale = cultureInfo.Name.Replace("-", "_");
+
+	CSharpCodeProvider cs = new CSharpCodeProvider();
+
+	if (!cs.IsValidIdentifier(locale)) {
+		locale = string.Format("@{0}", locale);
+	}
+
+	localeList.Add(locale);
+#>
+	/// <summary>
+    /// <#= cultureInfo.DisplayName #>
+    /// </summary>
+    /// <returns></returns>
+    public string <#= locale #> { get; set; }
+
+<# } #>
+	public Inline(<#= string.Join(", ", localeList.Select(l => string.Format("string {0} = \"\"", l)).ToArray()) #>)
+    {
+<# foreach(string locale in localeList) { #>
+		<#= string.Format("this.{0} = {1};", locale, locale) #>
+<# } #>
+	}
+  }
+}
