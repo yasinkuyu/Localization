@@ -20,23 +20,19 @@ namespace Insya.Localization
         /// <param name="applicationName"></param>
         public static void GetXmlResource(string path, string applicationName)
         {
+            using (XmlTextReader reader = new XmlTextReader(path)) {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(reader);
 
-            var doc = new XmlTextReader(path);
-            var xml = new XmlDocument();
-            xml.Load(doc);
+                var nodes = xmlDoc.DocumentElement.SelectSingleNode("//lang");
 
-            var nodes = xml.DocumentElement.SelectSingleNode("//lang");
+                for (int i = 0; i <= nodes.ChildNodes.Count - 1; i++) {
+                    string itemId = nodes.ChildNodes.Item(i).Attributes.Item(0).InnerText;
+                    string itemValue = nodes.ChildNodes.Item(i).InnerText;
 
-            for (var nod = 0; nod <= nodes.ChildNodes.Count - 1; nod++)
-            {
-                var itemId = nodes.ChildNodes.Item(nod).Attributes.Item(0).InnerText;
-                var itemValue = nodes.ChildNodes.Item(nod).InnerText;
-
-                HttpContext.Current.Application[applicationName + itemId] = itemValue;
-
+                    HttpContext.Current.Application[applicationName + itemId] = itemValue;
+                }
             }
-            xml.Clone();
-            doc.Close();
         }
     }
 }

@@ -1,13 +1,29 @@
 // @yasinkuyu
 // 05/08/2014
 
-using System;
+using System.Globalization;
 using System.Web;
 
 namespace Insya.Localization
 {
     internal class LocalizationStartup
     {
+        private const string CacheLangCookieName = "CacheLang";
+
+        private static string defaultCulture;
+
+        private static string DefaultCulture {
+            get 
+            {
+                if (string.IsNullOrEmpty(defaultCulture)) {
+                    // https://msdn.microsoft.com/en-us/library/ee825488(v=cs.20).aspx
+                    defaultCulture = new CultureInfo("en-US").Name;
+                }
+
+                return defaultCulture;
+            }
+        }
+
         /// <summary>
         /// Localization Culture (ex: tr-TR)
         /// </summary>
@@ -23,11 +39,15 @@ namespace Insya.Localization
         /// <returns></returns>
         private string Folder { get; set; }
 
-        public void ReadCookie()
+        public bool ReadCookie()
         {
-            Culture = string.Format("{0}", Language.en_US);
+            if (HttpContext.Current == null) {
+                return false;
+            }
 
-            var cookieLanguage = HttpContext.Current.Request.Cookies["CacheLang"];
+            Culture = string.Format("{0}", DefaultCulture);
+
+            var cookieLanguage = HttpContext.Current.Request.Cookies[CacheLangCookieName];
 
             if (cookieLanguage != null)
             {
@@ -35,14 +55,16 @@ namespace Insya.Localization
             }
             else
             {
-                var httpCookie = HttpContext.Current.Response.Cookies["CacheLang"];
+                var httpCookie = HttpContext.Current.Response.Cookies[CacheLangCookieName];
                 if (httpCookie != null)
-                    httpCookie.Value = Language.en_US.ToString();
+                    httpCookie.Value = DefaultCulture;
 
                 if (cookieLanguage != null)
                     Culture = string.Format("{0}", cookieLanguage.Value);
 
             }
+
+            return true;
         }
 
         /// <summary>
@@ -52,7 +74,9 @@ namespace Insya.Localization
         /// <returns></returns>
         public string GetLang(string id, string _culture = "")
         {
-            ReadCookie();
+            if (!ReadCookie()) {
+                return id;
+            }
 
             // Unique applization default id
             string uniqueApplicationName = "InsyaLocalization";
@@ -70,16 +94,16 @@ namespace Insya.Localization
 
             string applicationName = string.Format("{0}_{1}_", Culture, uniqueApplicationName);
 
-            var key = applicationName + id;
+            string key = applicationName + id;
 
             if (HttpContext.Current.Application[key] == null)
             {
-                var path = HttpContext.Current.Server.MapPath(string.Format("~/{0}/{1}.xml", xmlFolderName, Culture));
+                string path = HttpContext.Current.Server.MapPath(string.Format("~/{0}/{1}.xml", xmlFolderName, Culture));
 
                 Resource.GetXmlResource(path, applicationName);
             }
 
-            var valueObj = HttpContext.Current.Application[key];
+            object valueObj = HttpContext.Current.Application[key];
             if (valueObj == null)
                 return id;
             else return valueObj.ToString();            
@@ -92,7 +116,9 @@ namespace Insya.Localization
         /// <returns></returns>
         public string GetLang(Inline lang)
         {
-            ReadCookie();
+            if (!ReadCookie()) {
+                return DefaultCulture;
+            }
 
             if (Culture != null)
             {
@@ -102,19 +128,17 @@ namespace Insya.Localization
                 return value;
             }
 
-            return lang.en_US;
+            return DefaultCulture;
         }
 
         // ToDo this
-        public string SetLang(Language lang)
+        public string SetLang(string lang)
         {
-            var cookieLanguage = HttpContext.Current.Request.Cookies["CacheLang"];
+            var cookieLanguage = HttpContext.Current.Request.Cookies[CacheLangCookieName];
 
             if (cookieLanguage != null)
             {
                 var cookie = string.Format("{0}", cookieLanguage.Value);
-
-                bool exists = Enum.IsDefined(typeof(Language), cookieLanguage.Value);
             }
 
             return null;
