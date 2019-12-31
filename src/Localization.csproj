@@ -50,13 +50,11 @@
     <Compile Include="Attributes\DescriptionLocalizeAttribute.cs" />
     <Compile Include="Attributes\DisplayLocalizeAttribute.cs" />
     <Compile Include="GetPropertyValue.cs" />
-    <Compile Include="IInline.cs" />
     <Compile Include="Inline.cs" />
     <Compile Include="Resource.cs" />
     <Compile Include="Helpers\ActionLinkLocalization.cs" />
     <Compile Include="Helpers\ActionLocalization.cs" />
     <Compile Include="Helpers\LocalizeHelpers.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="LocalizationStartup.cs" />
     <Compile Include="Localization.cs" />
     <Compile Include="Properties\Annotations.cs" />
